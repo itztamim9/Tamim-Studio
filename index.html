@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Youtamix – Pro YouTuber Design Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <img class="hero-logo" src="images/youtuber-logo.png" alt="YouTube Logo">
+    <h1>Creative designs that speak louder than words</h1>
+    <p>Professional YouTube Thumbnails, Logos & Banners</p>
+    <a href="#order" class="btn-3d">Order Now</a>
+  </header>
+
+  <!-- Our Services -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="mini-cards">
+      <div class="mini-card">
+        <i class="fas fa-image"></i>
+        <h3>Thumbnail</h3>
+        <p>৳80</p>
+      </div>
+      <div class="mini-card">
+        <i class="fas fa-user-circle"></i>
+        <h3>Logo</h3>
+        <p>৳50</p>
+      </div>
+      <div class="mini-card">
+        <i class="fas fa-clone"></i>
+        <h3>Banner</h3>
+        <p>৳70</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Form -->
+  <a href="#order" class="btn-3d pulse-button">Order Now</a>
+
+  <section id="order" class="order">
+    <h2>Place Your Order</h2>
+    <form>
+      <div class="form-row">
+        <label>Name<input type="text" placeholder="Your Name" required></label>
+        <label>Email<input type="email" placeholder="Your Email" required></label>
+      </div>
+      <label>Service
+        <select required>
+          <option value="" disabled selected>Select Service</option>
+          <option>YouTube Thumbnail</option>
+          <option>YouTube Logo</option>
+          <option>YouTube Banner</option>
+        </select>
+      </label>
+      <label>Instructions / Text
+        <textarea placeholder="e.g. I need a fiery gaming thumbnail" required></textarea>
+      </label>
+
+      <div class="upload-box" onclick="document.getElementById('file-upload').click()">
+        <i class="fas fa-plus"></i>
+        <p>Upload Reference Image</p>
+      </div>
+      <input type="file" id="file-upload" name="file">
+
+      <!-- Delivery Options -->
+      <div class="delivery">
+        <p>Delivery via:</p>
+        <label><i class="fab fa-whatsapp"></i><input type="text" placeholder="WhatsApp Number"></label>
+        <label><i class="fab fa-telegram"></i><input type="text" placeholder="@Telegram"></label>
+        <label><i class="fas fa-envelope"></i><input type="email" placeholder="you@example.com"></label>
+        <label><i class="fas fa-comment"></i><input type="text" placeholder="Imo Number"></label>
+      </div>
+
+      <!-- Payment -->
+      <div class="payment">
+        <img class="bkash-animated" src="images/bkash-logo.png" alt="bKash">
+        <label>bKash Number<input type="text" value="01965613742" readonly></label>
+        <label>Transaction ID<input type="text" placeholder="Paste Transaction ID"></label>
+      </div>
+
+      <button type="submit" class="btn-3d">Submit Order</button>
+    </form>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews">
+    <h2>What Our Clients Say</h2>
+    <div class="review-cards">
+      <!-- Example review with user image -->
+      <div class="review">
+        <img src="images/user4.jpg" alt="Client">
+        <p class="stars">★★★★★</p>
+        <p class="text">"Vaiya, ei design ta ekdom boss-level!"</p>
+      </div>
+      <!-- More reviews can go here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Youtamix – Crafted with passion & pixels</p>
+  </footer>
+
+</body>
+</html>
