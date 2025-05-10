@@ -1,112 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Youtamix – Pro YouTuber Design Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BooyahArts BD - Free Fire Design Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-<body>
+<body class="light-mode">
 
-  <!-- Hero Section -->
   <header class="hero">
-    <img class="hero-logo" src="images/youtuber-logo.png" alt="YouTube Logo">
-    <h1>Creative designs that speak louder than words</h1>
-    <p>Professional YouTube Thumbnails, Logos & Banners</p>
-    <a href="#order" class="btn-3d">Order Now</a>
+    <button class="mode-toggle" onclick="toggleMode()"><i class="fas fa-adjust"></i></button>
+    <img src="images/logo.png" alt="BooyahArts BD Logo" class="hero-logo"/>
+    <h1>BooyahArts BD</h1>
+    <p class="tagline">We provide professional designs for Free Fire gaming YouTubers</p>
+    <a href="#order" class="btn">Order Now</a>
   </header>
 
-  <!-- Our Services -->
   <section id="services" class="services">
     <h2>Our Services</h2>
-    <div class="mini-cards">
-      <div class="mini-card">
-        <i class="fas fa-image"></i>
-        <h3>Thumbnail</h3>
-        <p>৳80</p>
-      </div>
-      <div class="mini-card">
-        <i class="fas fa-user-circle"></i>
-        <h3>Logo</h3>
-        <p>৳50</p>
-      </div>
-      <div class="mini-card">
-        <i class="fas fa-clone"></i>
-        <h3>Banner</h3>
-        <p>৳70</p>
-      </div>
+    <div class="service-cards">
+      <div class="card"><i class="fas fa-image"></i><h3>Thumbnail</h3><p>60৳</p></div>
+      <div class="card"><i class="fas fa-user-circle"></i><h3>Logo</h3><p>50৳</p></div>
+      <div class="card"><i class="fas fa-clone"></i><h3>Banner</h3><p>60৳</p></div>
     </div>
   </section>
 
-  <!-- Order Form -->
-  <a href="#order" class="btn-3d pulse-button">Order Now</a>
+  <!-- New Design Types Section -->
+  <section class="design-types">
+    <h2>Available Design Types</h2>
+    <ul>
+      <li>Free Fire Logo Design</li>
+      <li>YouTube Thumbnail</li>
+      <li>Channel Banner</li>
+      <li>Animated Logo Intro</li>
+      <li>Profile Picture</li>
+      <li>Bundle Pack (Logo + Thumbnail + Banner)</li>
+    </ul>
+  </section>
 
   <section id="order" class="order">
     <h2>Place Your Order</h2>
-    <form>
-      <div class="form-row">
-        <label>Name<input type="text" placeholder="Your Name" required></label>
-        <label>Email<input type="email" placeholder="Your Email" required></label>
-      </div>
-      <label>Service
-        <select required>
-          <option value="" disabled selected>Select Service</option>
-          <option>YouTube Thumbnail</option>
-          <option>YouTube Logo</option>
-          <option>YouTube Banner</option>
+    <form action="https://formsubmit.co/el/zocowa" method="POST" enctype="multipart/form-data">
+      <label>Your Name
+        <input type="text" name="name" placeholder="Enter your name" required>
+      </label>
+      <label>Email Address
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </label>
+      <label>Select Service
+        <select name="service">
+          <option value="Thumbnail">Thumbnail - 60৳</option>
+          <option value="Logo">Logo - 50৳</option>
+          <option value="Banner">Banner - 60৳</option>
+          <option value="All">All 3 Pack</option>
         </select>
       </label>
-      <label>Instructions / Text
-        <textarea placeholder="e.g. I need a fiery gaming thumbnail" required></textarea>
+      <label>Design Details
+        <textarea name="details" rows="4" placeholder="Describe your idea…" required></textarea>
       </label>
 
-      <div class="upload-box" onclick="document.getElementById('file-upload').click()">
-        <i class="fas fa-plus"></i>
-        <p>Upload Reference Image</p>
-      </div>
-      <input type="file" id="file-upload" name="file">
+      <!-- File Upload -->
+      <label>Upload Reference Image</label>
+      <label for="file-upload" class="image-upload-label">
+        <i class="fas fa-plus upload-icon"></i>
+        <span id="file-name">No file chosen</span>
+      </label>
+      <input type="file" id="file-upload" name="attachment" accept="image/*" style="display: none;" onchange="showFileName(event)">
 
-      <!-- Delivery Options -->
-      <div class="delivery">
-        <p>Delivery via:</p>
-        <label><i class="fab fa-whatsapp"></i><input type="text" placeholder="WhatsApp Number"></label>
-        <label><i class="fab fa-telegram"></i><input type="text" placeholder="@Telegram"></label>
-        <label><i class="fas fa-envelope"></i><input type="email" placeholder="you@example.com"></label>
-        <label><i class="fas fa-comment"></i><input type="text" placeholder="Imo Number"></label>
-      </div>
-
+      <p class="payment-note">Send payment via bKash or Cash In, then enter your transaction ID below.</p>
       <!-- Payment -->
       <div class="payment">
         <img class="bkash-animated" src="images/bkash-logo.png" alt="bKash">
         <label>bKash Number<input type="text" value="01965613742" readonly></label>
         <label>Transaction ID<input type="text" placeholder="Paste Transaction ID"></label>
-      </div>
+                                                     </div>
 
-      <button type="submit" class="btn-3d">Submit Order</button>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Design Order!">
+      <button type="submit" class="btn">Send Order</button>
     </form>
   </section>
-
-  <!-- Reviews -->
+  
   <section class="reviews">
     <h2>What Our Clients Say</h2>
     <div class="review-cards">
-      <!-- Example review with user image -->
       <div class="review">
-        <img src="images/user4.jpg" alt="Client">
-        <p class="stars">★★★★★</p>
-        <p class="text">"Vaiya, ei design ta ekdom boss-level!"</p>
+        <div class="user">Tamim</div>
+        <div class="comment">Amazing thumbnail! 10/10</div>
       </div>
-      <!-- More reviews can go here -->
+      <div class="review">
+        <div class="user">Shanto</div>
+        <div class="comment">Fast delivery and premium design.</div>
+      </div>
+      <!-- Additional Reviews from 2nd Website -->
+      <div class="review"><div class="user">Rafi</div><div class="comment">Amazing thumbnail! Just what I wanted.</div></div>
+      <div class="review"><div class="user">Sakib</div><div class="comment">Great logo quality, delivered fast.</div></div>
+      <div class="review"><div class="user">Tamal</div><div class="comment">Loved the banner design! Highly recommended.</div></div>
+      <div class="review"><div class="user">Jahid</div><div class="comment">Best design service for Free Fire players!</div></div>
+      <div class="review"><div class="user">Siam</div><div class="comment">Professional and responsive designer.</div></div>
+      <div class="review"><div class="user">Ratul</div><div class="comment">Simple, clean and very attractive thumbnail.</div></div>
+      <div class="review"><div class="user">Nayeem</div><div class="comment">Highly satisfied with the quality.</div></div>
+      <div class="review"><div class="user">Asif</div><div class="comment">Quick delivery and top-notch service.</div></div>
+      <div class="review"><div class="user">Hasib</div><div class="comment">One of the best Bangladeshi design services!</div></div>
+      <div class="review"><div class="user">Imran</div><div class="comment">Value for money. Worth every Taka.</div></div>
+      <div class="review"><div class="user">Arman</div><div class="comment">I got more than I expected. Fantastic!</div></div>
+      <div class="review"><div class="user">Tusher</div><div class="comment">Design quality is just awesome.</div></div>
+      <div class="review"><div class="user">Roman</div><div class="comment">Will order again. Very professional.</div></div>
+      <div class="review"><div class="user">Jisan</div><div class="comment">Loved the creativity in my logo!</div></div>
+      <div class="review"><div class="user">Tanvir</div><div class="comment">Best designer for Free Fire thumbnails.</div></div>
+      <div class="review"><div class="user">Arif</div><div class="comment">Got delivery within 2 hours. Excellent!</div></div>
+      <div class="review"><div class="user">Nasif</div><div class="comment">Thumbnail was very eye-catching.</div></div>
+      <div class="review"><div class="user">Sumon</div><div class="comment">Professional layout and quick support.</div></div>
+      <div class="review"><div class="user">Mahin</div><div class="comment">Amazing service. 10/10.</div></div>
+      <div class="review"><div class="user">Raihan</div><div class="comment">Very satisfied with the design!</div></div>
+      <div class="review"><div class="user">Hridoy</div><div class="comment">Awesome editing skills!</div></div>
+      <div class="review"><div class="user">Fahim</div><div class="comment">Great customer support!</div></div>
+      <div class="review"><div class="user">Farhan</div><div class="comment">All 3 pack was really worth it.</div></div>
+      <div class="review"><div class="user">Jabir</div><div class="comment">Love the color scheme and clarity.</div></div>
+      <div class="review"><div class="user">Rafin</div><div class="comment">Simple process, amazing result!</div></div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Youtamix – Crafted with passion & pixels</p>
+    <p>© 2025 BooyahArts BD</p>
+    <div class="social">
+      <a href="https://youtube.com/@itz_tamim_9" target="_blank">
+        <i class="fab fa-youtube"></i> YouTube Channel
+      </a>
+    </div>
   </footer>
 
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function showFileName(event) {
+      const file = event.target.files[0];
+      const fileName = file ? file.name : 'No file chosen';
+      document.getElementById('file-name').textContent = fileName;
+    }
+  </script>
+
 </body>
-</html>
+    </html>
