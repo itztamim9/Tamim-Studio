@@ -70,19 +70,16 @@
       <input type="file" id="file-upload" name="attachment" accept="image/*" style="display: none;" onchange="showFileName(event)">
 
       <p class="payment-note">Send payment via bKash or Cash In, then enter your transaction ID below.</p>
-      <!-- Payment -->
-      <div class="payment">
-        <img class="bkash-animated" src="images/bkash-logo.png" alt="bKash">
-        <label>bKash Number<input type="text" value="01965613742" readonly></label>
-        <label>Transaction ID<input type="text" placeholder="Paste Transaction ID"></label>
-                                                     </div>
+      <label>Transaction ID
+        <input type="text" name="txn" placeholder="e.g. TXN123456789" required>
+      </label>
 
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_subject" value="New Design Order!">
       <button type="submit" class="btn">Send Order</button>
     </form>
   </section>
-  
+
   <section class="reviews">
     <h2>What Our Clients Say</h2>
     <div class="review-cards">
@@ -146,4 +143,4 @@
   </script>
 
 </body>
-    </html>
+</html>
