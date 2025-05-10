@@ -148,33 +148,6 @@ body {
   border: 1px solid #ccc;
   font-family: inherit;
 }
-/* Payment */
-.payment {
-  background: linear-gradient(135deg, #fef1f8, #ffe5f0);
-  padding: 20px;
-  border-radius: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-}
-
-.payment img {
-  width: 50px;
-}
-
-.payment label {
-  flex: 1;
-  font-weight: 600;
-  display: flex;
-  flex-direction: column;
-}
-
-.payment input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  }
 
 /* Image Upload */
 .image-upload-label {
