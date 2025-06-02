@@ -1,146 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BooyahArts BD - Free Fire Design Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Fire Diamond Redeem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Rubik', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      max-width: 400px;
+      text-align: center;
+    }
+    .container h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #fff;
+      color: #ff416c;
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #ffe6eb;
+    }
+    .expired-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
-<body class="light-mode">
-
-  <header class="hero">
-    <button class="mode-toggle" onclick="toggleMode()"><i class="fas fa-adjust"></i></button>
-    <img src="images/logo.png" alt="BooyahArts BD Logo" class="hero-logo"/>
-    <h1>BooyahArts BD</h1>
-    <p class="tagline">We provide professional designs for Free Fire gaming YouTubers</p>
-    <a href="#order" class="btn">Order Now</a>
-  </header>
-
-  <section id="services" class="services">
-    <h2>Our Services</h2>
-    <div class="service-cards">
-      <div class="card"><i class="fas fa-image"></i><h3>Thumbnail</h3><p>60৳</p></div>
-      <div class="card"><i class="fas fa-user-circle"></i><h3>Logo</h3><p>50৳</p></div>
-      <div class="card"><i class="fas fa-clone"></i><h3>Banner</h3><p>60৳</p></div>
+<body>
+  <div class="container">
+    <h1>🎁 Get 350 Diamonds Free!</h1>
+    <p>Enter your Free Fire UID to receive your reward instantly!</p>
+    <input type="text" id="uid" placeholder="Enter your Free Fire UID" required>
+    <button onclick="redeemOffer()">Redeem Now</button>
+    <div id="expired" class="expired-message">
+      ❌ Sorry! This offer has expired due to high demand.<br>
+      Please subscribe to our YouTube for the next event.
     </div>
-  </section>
-
-  <!-- New Design Types Section -->
-  <section class="design-types">
-    <h2>Available Design Types</h2>
-    <ul>
-      <li>Free Fire Logo Design</li>
-      <li>YouTube Thumbnail</li>
-      <li>Channel Banner</li>
-      <li>Animated Logo Intro</li>
-      <li>Profile Picture</li>
-      <li>Bundle Pack (Logo + Thumbnail + Banner)</li>
-    </ul>
-  </section>
-
-  <section id="order" class="order">
-    <h2>Place Your Order</h2>
-    <form action="https://formsubmit.co/el/zocowa" method="POST" enctype="multipart/form-data">
-      <label>Your Name
-        <input type="text" name="name" placeholder="Enter your name" required>
-      </label>
-      <label>Email Address
-        <input type="email" name="email" placeholder="Enter your email" required>
-      </label>
-      <label>Select Service
-        <select name="service">
-          <option value="Thumbnail">Thumbnail - 60৳</option>
-          <option value="Logo">Logo - 50৳</option>
-          <option value="Banner">Banner - 60৳</option>
-          <option value="All">All 3 Pack</option>
-        </select>
-      </label>
-      <label>Design Details
-        <textarea name="details" rows="4" placeholder="Describe your idea…" required></textarea>
-      </label>
-
-      <!-- File Upload -->
-      <label>Upload Reference Image</label>
-      <label for="file-upload" class="image-upload-label">
-        <i class="fas fa-plus upload-icon"></i>
-        <span id="file-name">No file chosen</span>
-      </label>
-      <input type="file" id="file-upload" name="attachment" accept="image/*" style="display: none;" onchange="showFileName(event)">
-
-      <p class="payment-note">Send payment via bKash or Cash In, then enter your transaction ID below.</p>
-      <label>Transaction ID
-        <input type="text" name="txn" placeholder="e.g. TXN123456789" required>
-      </label>
-
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="New Design Order!">
-      <button type="submit" class="btn">Send Order</button>
-    </form>
-  </section>
-
-  <section class="reviews">
-    <h2>What Our Clients Say</h2>
-    <div class="review-cards">
-      <div class="review">
-        <div class="user">Tamim</div>
-        <div class="comment">Amazing thumbnail! 10/10</div>
-      </div>
-      <div class="review">
-        <div class="user">Shanto</div>
-        <div class="comment">Fast delivery and premium design.</div>
-      </div>
-      <!-- Additional Reviews from 2nd Website -->
-      <div class="review"><div class="user">Rafi</div><div class="comment">Amazing thumbnail! Just what I wanted.</div></div>
-      <div class="review"><div class="user">Sakib</div><div class="comment">Great logo quality, delivered fast.</div></div>
-      <div class="review"><div class="user">Tamal</div><div class="comment">Loved the banner design! Highly recommended.</div></div>
-      <div class="review"><div class="user">Jahid</div><div class="comment">Best design service for Free Fire players!</div></div>
-      <div class="review"><div class="user">Siam</div><div class="comment">Professional and responsive designer.</div></div>
-      <div class="review"><div class="user">Ratul</div><div class="comment">Simple, clean and very attractive thumbnail.</div></div>
-      <div class="review"><div class="user">Nayeem</div><div class="comment">Highly satisfied with the quality.</div></div>
-      <div class="review"><div class="user">Asif</div><div class="comment">Quick delivery and top-notch service.</div></div>
-      <div class="review"><div class="user">Hasib</div><div class="comment">One of the best Bangladeshi design services!</div></div>
-      <div class="review"><div class="user">Imran</div><div class="comment">Value for money. Worth every Taka.</div></div>
-      <div class="review"><div class="user">Arman</div><div class="comment">I got more than I expected. Fantastic!</div></div>
-      <div class="review"><div class="user">Tusher</div><div class="comment">Design quality is just awesome.</div></div>
-      <div class="review"><div class="user">Roman</div><div class="comment">Will order again. Very professional.</div></div>
-      <div class="review"><div class="user">Jisan</div><div class="comment">Loved the creativity in my logo!</div></div>
-      <div class="review"><div class="user">Tanvir</div><div class="comment">Best designer for Free Fire thumbnails.</div></div>
-      <div class="review"><div class="user">Arif</div><div class="comment">Got delivery within 2 hours. Excellent!</div></div>
-      <div class="review"><div class="user">Nasif</div><div class="comment">Thumbnail was very eye-catching.</div></div>
-      <div class="review"><div class="user">Sumon</div><div class="comment">Professional layout and quick support.</div></div>
-      <div class="review"><div class="user">Mahin</div><div class="comment">Amazing service. 10/10.</div></div>
-      <div class="review"><div class="user">Raihan</div><div class="comment">Very satisfied with the design!</div></div>
-      <div class="review"><div class="user">Hridoy</div><div class="comment">Awesome editing skills!</div></div>
-      <div class="review"><div class="user">Fahim</div><div class="comment">Great customer support!</div></div>
-      <div class="review"><div class="user">Farhan</div><div class="comment">All 3 pack was really worth it.</div></div>
-      <div class="review"><div class="user">Jabir</div><div class="comment">Love the color scheme and clarity.</div></div>
-      <div class="review"><div class="user">Rafin</div><div class="comment">Simple process, amazing result!</div></div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 BooyahArts BD</p>
-    <div class="social">
-      <a href="https://youtube.com/@itz_tamim_9" target="_blank">
-        <i class="fab fa-youtube"></i> YouTube Channel
-      </a>
-    </div>
-  </footer>
-
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle('light-mode');
-      document.body.classList.toggle('dark-mode');
+  </div>  <script>
+    function redeemOffer() {
+      const uid = document.getElementById("uid").value;
+      if (uid.length >= 5) {
+        document.getElementById("expired").style.display = "block";
+      } else {
+        alert("Please enter a valid Free Fire UID.");
+      }
     }
-
-    function showFileName(event) {
-      const file = event.target.files[0];
-      const fileName = file ? file.name : 'No file chosen';
-      document.getElementById('file-name').textContent = fileName;
-    }
-  </script>
-
-</body>
+  </script></body>
 </html>
