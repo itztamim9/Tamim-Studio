@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Free Fire Diamond Redeem</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -27,14 +28,20 @@
       backdrop-filter: blur(10px);
       max-width: 400px;
       text-align: center;
+      position: relative;
+      transition: 0.5s;
     }
     .container h1 {
       font-size: 24px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+    }
+    .container p {
+      font-size: 14px;
+      margin-bottom: 15px;
     }
     input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
       border: none;
       border-radius: 10px;
@@ -43,7 +50,7 @@
     button {
       width: 100%;
       padding: 12px;
-      margin-top: 15px;
+      margin-top: 10px;
       background-color: #fff;
       color: #ff416c;
       font-weight: 600;
@@ -56,13 +63,53 @@
     button:hover {
       background-color: #ffe6eb;
     }
-    .expired-message {
+
+    /* Loading spinner */
+    .loading {
       display: none;
       margin-top: 20px;
+    }
+    .loader {
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      border-top: 5px solid #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading p {
+      margin-top: 10px;
       font-size: 16px;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 10px;
-      border-radius: 10px;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      background: rgba(0, 255, 128, 0.15);
+      padding: 20px;
+      border-radius: 15px;
+      animation: fadeIn 1s ease-in-out forwards;
+      box-shadow: 0 0 20px rgba(0,255,128,0.2);
+    }
+    .success-message h2 {
+      font-size: 20px;
+      color: #b8ffda;
+      margin-bottom: 10px;
+    }
+    .success-message p {
+      font-size: 14px;
+      color: #d0ffe8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
@@ -71,19 +118,38 @@
     <h1>🎁 Get 350 Diamonds Free!</h1>
     <p>Enter your Free Fire UID to receive your reward instantly!</p>
     <input type="text" id="uid" placeholder="Enter your Free Fire UID" required>
-    <button onclick="redeemOffer()">Redeem Now</button>
-    <div id="expired" class="expired-message">
-      ❌ Sorry! This offer has expired due to high demand.<br>
-      Please subscribe to our YouTube for the next event.
+    <button onclick="redeemNow()">Redeem Now</button>
+
+    <div class="loading" id="loading">
+      <div class="loader"></div>
+      <p>Processing your reward...</p>
     </div>
-  </div>  <script>
-    function redeemOffer() {
-      const uid = document.getElementById("uid").value;
+
+    <div class="success-message" id="success">
+      <h2>✅ Congratulations!</h2>
+      <p>Your 350 Diamonds have been successfully added to your Free Fire account.</p>
+    </div>
+  </div>
+
+  <script>
+    function redeemNow() {
+      const uid = document.getElementById("uid").value.trim();
+      const loading = document.getElementById("loading");
+      const success = document.getElementById("success");
+
       if (uid.length >= 5) {
-        document.getElementById("expired").style.display = "block";
+        loading.style.display = "block";
+        success.style.display = "none";
+
+        // Simulate loading delay
+        setTimeout(() => {
+          loading.style.display = "none";
+          success.style.display = "block";
+        }, 3000);
       } else {
         alert("Please enter a valid Free Fire UID.");
       }
     }
-  </script></body>
+  </script>
+</body>
 </html>
