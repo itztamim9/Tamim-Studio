@@ -2,329 +2,297 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gmail Submit & Earn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>📨 Gmail Submit & Earn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
     }
-
     body {
-      background: linear-gradient(to right, #141E30, #243B55);
-      color: white;
+      font-family: 'Prompt', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+      transition: 0.4s;
     }
-
-    .hero {
-      position: relative;
-      height: 80vh;
-      overflow: hidden;
-    }
-
-    .banner-img {
+    header {
       width: 100%;
-      height: 92.70%;
-      object-fit: cover;
-      opacity: 0.99.99;
-      filter: brightness(100%);
-    }
-
-    .overlay-text {
-      position: absolute;
-      top: 15%;
-      left: 50%;
-      transform: translate(-50%, -60%);
+      padding: 20px 0;
       text-align: center;
-      color: #00ffc3;
+      background: #000;
     }
-
-    .overlay-text h {
-      font-size: 28px;
+    header img {
+      max-width: 100%;
+      height: auto;
     }
-
-    .overlay-text p {
-      font-size: 14px;
-      color: #ffffffc9;
-      margin-top: 5px;
-    }
-
-    .app {
-      max-width: 500px;
-      margin: -60px auto 30px; /* overlaps banner smoothly */
-      background: rgba(255, 255, 255, 0.05);
+    main {
+      max-width: 650px;
+      margin: -60px auto 30px;
+      background: #fff;
+      color: #222;
       border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 0 20px #00000060;
+      padding: 30px 25px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.3);
       position: relative;
       z-index: 2;
     }
-
-    .form-group {
-      margin: 15px 0;
+    h1 {
+      font-size: 26px;
+      margin-bottom: 12px;
+      color: #d32f2f;
+      text-align: center;
     }
-
-    input, select {
-      width: 100%;
-      padding: 10px;
+    p {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .guide {
+      background: #f5f5f5;
+      border-left: 4px solid #2196f3;
+      padding: 15px;
       border-radius: 8px;
-      border: none;
-      margin-top: 5px;
-      outline: none;
-      background: #ffffff10;
-      color: #fff;
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #333;
     }
-
-    input[readonly] {
-      background: #ffffff10;
-      color: #00ffc3;
-      cursor: default;
+    ul.rules {
+      list-style: none;
+      padding: 0 0 10px;
+      margin: 0 0 20px;
+      color: #333;
     }
-
-    button {
-      width: 100%;
+    ul.rules li {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+    ul.rules li strong {
+      color: #009688;
+    }
+    ul.rules a {
+      color: #1976d2;
+      text-decoration: none;
+    }
+    ul.rules a:hover {
+      text-decoration: underline;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    input, button {
+      font-size: 16px;
       padding: 12px;
-      margin-top: 10px;
-      background: #00ffc3;
-      border: none;
-      color: #000;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    input[readonly] {
+      background: #eee;
       font-weight: bold;
-      border-radius: 8px;
+      color: #555;
+    }
+    button {
+      background: #009688;
+      color: white;
       cursor: pointer;
-      transition: 0.3s;
+      border: none;
+      transition: 0.2s;
     }
-
     button:hover {
-      background: #00cc9f;
+      background: #00796b;
     }
-
     .account {
       margin-top: 25px;
       text-align: center;
     }
-
     #balance {
       font-size: 24px;
-      margin: 10px 0;
-      color: #00ffc3;
+      font-weight: bold;
+      color: #d32f2f;
     }
-
-    .info-box {
-      background: #ffffff15;
-      padding: 15px;
-      border-radius: 10px;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .info-box ul {
-      padding-left: 20px;
-    }
-
-    .info-box a {
-      text-decoration: underline;
-      color: #00ffc3;
-    }
-
     .share {
-      margin-top: 30px;
+      margin-top: 25px;
       text-align: center;
     }
-
-    .share input {
-      background: #ffffff10;
-      border: 1px solid #00ffc3;
-      color: #fff;
+    .share-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+    .share-buttons button {
+      background: #1976d2;
+      color: white;
+      border: none;
       padding: 10px;
-      text-align: center;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
     }
-
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 13px;
-      opacity: 0.7;
+    .share-buttons button:hover {
+      background: #1565c0;
     }
-
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
-      z-index: 999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
     }
-
     .modal-content {
-      background: #1c1f2b;
-      margin: 10% auto;
+      background: #fff;
+      color: #222;
       padding: 20px;
       border-radius: 12px;
       width: 90%;
       max-width: 400px;
-      color: #fff;
+      position: relative;
     }
-
-    .close {
-      float: right;
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
       font-size: 22px;
+      font-weight: bold;
       cursor: pointer;
+      color: #333;
     }
-
-    @media (max-width: 600px) {
-      .overlay-text h1 {
-        font-size: 22px;
-      }
-
-      .overlay-text p {
-        font-size: 12px;
-      }
-
-      .app {
-        margin: -40px 20px 30px;
-      }
+    .notice {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 16px 0;
+      font-size: 14px;
+      background: #000;
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <img src="gmail-earn-banner.png" alt="Banner" class="banner-img" />
-    <div class="overlay-text">
-      <h1>📨 Gmail Submit & Earn</h1>
-      <p>Gmail create করে নিচের ফর্মে সাবমিট করুন। প্রতি Gmail এ পাবেন ১০৳!</p>
-    </div>
-  </div>
+  <header>
+    <img src="gmail-earn-banner.png" alt="Gmail Earn Banner" />
+  </header>
 
-  <div class="app">
-    <div class="info-box">
-      <p>📢 <strong>Gmail তৈরির নিয়মাবলী (খুব গুরুত্বপূর্ণ):</strong></p>
-      <ul>
-        <li>✅ অবশ্যই <b><a href="https://accounts.google.com/signup" target="_blank">Gmail এর অফিসিয়াল ওয়েবসাইট</a></b> থেকে Gmail তৈরি করতে হবে।</li>
-        <li>🔐 Password অবশ্যই হবে: <b>Gmail@2025#$</b></li>
-        <li>📧 Recovery Gmail হবে: <b>booyahartsbd3056@gmail.com</b></li>
-        <li>🚫 ভুল তথ্য দিলে কোন টাকা দেওয়া হবে না।</li>
-        <li>📸 Gmail তৈরি করে সঠিকভাবে নিচের ফর্মে সাবমিট করুন।</li>
-        <li>💰 প্রতি Gmail এ পাবেন <strong>১০ টাকা</strong> ব্যালেন্স!</li>
-        <li>🛑 ভুল বা জালিয়াতি করলে একাউন্ট ব্যান হতে পারে।</li>
-      </ul>
+  <main>
+    <h1>📨 Gmail Submit & Earn</h1>
+    <p>নতুন Gmail তৈরি করে সাবমিট করুন এবং প্রতি Gmail এ আয় করুন <strong>৳১০</strong>!</p>
+
+    <div class="guide">
+      ✅ <strong>Gmail তৈরি করার নিয়ম:</strong><br />
+      <ol style="padding-left: 18px; margin-top: 10px;">
+        <li>১. <a href="https://accounts.google.com/signup" target="_blank">➤এই লিংকে ক্লিক করুন</a></li>
+        <li>২. নাম দিন:....</li
+        <li>৩. নতুন Gmail বানান:যেমন: ➤example@gmail.com </li>
+        <li>৪. পাসওয়ার্ড দিন: <strong>Gmail@2025#$</strong></li>
+        <li>৫. মোবাইল নম্বর না দিলেও চলবে</li>
+        <li>৬. Recovery Gmail দিন: <strong>booyahartsbd3056@gmail.com</strong></li>
+        <li>৭. জন্মতারিখ ও জেন্ডার দিন</li>
+        <li>৮. Done! Gmail বানানো হয়ে গেল</li>
+      </ol>
     </div>
 
-    <form id="gmailForm">
-      <div class="form-group">
-        <label>Gmail Address</label>
-        <input type="email" id="gmail" placeholder="example@gmail.com" required />
-      </div>
-      <div class="form-group">
-        <label>Password (✅)</label>
-        <input type="text" value="Gmail@2025#$" readonly />
-      </div>
+    <ul class="rules">
+      <li>🔐 Password: <strong>Gmail@2025#$</strong>[Use Must be✔️]</li>
+      <li>📧 Recovery Email: <strong>booyahartsbd3056@gmail.com</strong></li>
+      <li>🚫 ভুল Gmail দিলে টাকা পাবেন না!</li>
+    </ul>
+
+    <!-- ✅ Updated form with action to formsubmit -->
+    <form action="https://formsubmit.co/booyahartsbd3056@gmail.com" method="POST" id="gmailForm">
+      <input type="email" id="gmailInput" name="gmail" placeholder="example@gmail.com" required />
+      <input type="text" value="Gmail@2025#$          🔒" readonly />
+      <input type="text" id="hp" name="_honey" style="display:none" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
       <button type="submit">📤 সাবমিট করুন</button>
     </form>
 
     <div class="account">
       <p>আপনার ব্যালেন্স:</p>
-      <div id="balance">🪙৳0</div>
-      <button onclick="openWithdrawModal()">💳 উইথড্র করুন</button>
+      <div id="balance">৳0</div>
+      <button onclick="openModal()">💳 Withdraw / Request</button>
     </div>
 
     <div class="share">
-      <p>🔗 আপনার বন্ধুদের সাথে শেয়ার করুন:</p>
-      <input type="text" id="shareLink" value="https://yourdomain.com" readonly />
-      <button onclick="copyLink()">📋 কপি লিংক</button>
+      <p>🤝 বন্ধুদের সাথে শেয়ার করুন (প্রতি শেয়ার এ ৫৳):</p>
+      <div class="share-buttons">
+        <button onclick="copyLink()">📋 লিংক কপি করুন</button>
+      </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Withdraw Modal -->
-  <div id="withdrawModal" class="modal">
+  <div class="modal" id="withdrawModal">
     <div class="modal-content">
-      <span class="close" onclick="closeWithdrawModal()">&times;</span>
-      <h3>💰 উইথড্র রিকুয়েস্ট</h3>
-      <form id="withdrawForm">
-        <div class="form-group">
-          <label>উইথড্র মেথড</label>
-          <select id="method">
-            <option value="recharge">Mobile Recharge (Min ৳20)</option>
-            <option value="bkash">Bkash (Min ৳50)</option>
-          </select>
+      <span class="modal-close" onclick="closeModal()">×</span>
+      <h3>💰 Withdraw Request</h3>
+      <form action="https://formsubmit.co/booyahartsbd3056@gmail.com" method="POST">
+        <input type="text" name="withdraw_number" placeholder="01XXXXXXXXX" required />
+        <input type="number" name="amount" placeholder="টাকার পরিমাণ" required />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <button type="submit">📩 পাঠান</button>
+        <div class="notice">
+          🔺 মিনিমাম Recharge: ৫০৳<br />
+          🔺 মিনিমাম Bkash: ১০০৳<br />
+          ✅ রিকোয়েস্ট রিভিউ করে টাকা পাঠানো হবে!
         </div>
-        <div class="form-group">
-          <label>নাম্বার</label>
-          <input type="text" id="number" placeholder="01xxxxxxxxx" required />
-        </div>
-        <div class="form-group">
-          <label>পরিমাণ (৳)</label>
-          <input type="number" id="amount" required />
-        </div>
-        <button type="submit">📩 রিকুয়েস্ট পাঠান</button>
       </form>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 BooyahArtsBD | All rights reserved.
+    &copy; 2025 BooyahArts BD. All rights reserved.
   </footer>
 
   <script>
-    let balance = 0;
-
+    // Gmail Submission (Balance Logic)
     document.getElementById('gmailForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const gmail = document.getElementById('gmail').value;
-
-      if (!gmail.endsWith('@gmail.com')) {
-        alert('⚠️ সঠিক Gmail দিন');
-        return;
+      const email = document.getElementById('gmailInput').value.trim();
+      const hp = document.getElementById('hp').value;
+      if (hp !== '') return e.preventDefault();
+      if (!email.endsWith('@gmail.com')) {
+        e.preventDefault();
+        return alert('⚠️ দয়া করে একটি সঠিক Gmail দিন!');
       }
-
-      balance += 10;
-      updateBalance();
-      document.getElementById('gmail').value = '';
-      alert('✅ সাবমিট সফল! আপনার ব্যালেন্স 10৳ যোগ হয়েছে।');
+      let bal = parseInt(localStorage.getItem('balance') || '0', 10);
+      bal += 10;
+      localStorage.setItem('balance', bal);
+      document.getElementById('balance').textContent = `৳${bal}`;
+      alert('🎉 সফলভাবে সাবমিট হয়েছে! ১০৳ যোগ হয়েছে।');
     });
 
-    function updateBalance() {
-      document.getElementById('balance').innerText = `🪙৳${balance}`;
-    }
+    // Load Balance on Page Load
+    document.addEventListener('DOMContentLoaded', () => {
+      let bal = parseInt(localStorage.getItem('balance') || '0', 10);
+      document.getElementById('balance').textContent = `৳${bal}`;
+    });
 
-    function copyLink() {
-      const link = document.getElementById('shareLink');
-      link.select();
-      document.execCommand('copy');
-      alert('✅ লিংক কপি হয়েছে!');
+    // Modal Controls
+    function openModal() {
+      document.getElementById('withdrawModal').style.display = 'flex';
     }
-
-    function openWithdrawModal() {
-      document.getElementById('withdrawModal').style.display = 'block';
-    }
-
-    function closeWithdrawModal() {
+    function closeModal() {
       document.getElementById('withdrawModal').style.display = 'none';
     }
 
-    document.getElementById('withdrawForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const method = document.getElementById('method').value;
-      const number = document.getElementById('number').value;
-      const amount = parseInt(document.getElementById('amount').value);
-
-      if ((method === 'recharge' && amount < 20) || (method === 'bkash' && amount < 50)) {
-        alert('⚠️ সর্বনিম্ন উত্তোলন পরিমাণ পূরণ হয়নি।');
-        return;
-      }
-
-      if (amount > balance) {
-        alert('❌ পর্যাপ্ত ব্যালেন্স নেই।');
-        return;
-      }
-
-      balance -= amount;
-      updateBalance();
-      closeWithdrawModal();
-      alert('✅ রিকুয়েস্ট গ্রহণ করা হয়েছে! অ্যাডমিন রিভিউ করবে।');
-    });
+    // Copy Link
+    function copyLink() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        alert('🔗 লিংক কপি হয়েছে! এখন বন্ধুদের পাঠান!');
+      });
+    }
   </script>
 </body>
 </html>
